@@ -140,6 +140,9 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
 
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         print("書き込み成功！ service: \(characteristic.service.uuid), characteristics: \(characteristic.uuid)")
+
+        // 接続を閉じる
+        self.centralManager?.cancelPeripheralConnection(peripheral)
     }
 }
 
